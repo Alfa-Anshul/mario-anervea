@@ -1,0 +1,133 @@
+.auth-bg {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #5c94fc 0%, #9bbcff 60%, #5aa820 60%, #5aa820 75%, #5c4033 75%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-clouds { position: absolute; inset: 0; pointer-events: none; }
+.auth-cloud {
+  position: absolute;
+  background: rgba(255,255,255,0.92);
+  border-radius: 50px;
+}
+.auth-cloud::before,.auth-cloud::after {
+  content:''; position:absolute;
+  background: rgba(255,255,255,0.92);
+  border-radius: 50%;
+}
+.cloud-0 { width:80px;height:30px;top:8%;left:5%;animation:float 4s ease-in-out infinite; }
+.cloud-0::before{width:50px;height:40px;top:-20px;left:10px;}
+.cloud-0::after{width:40px;height:30px;top:-12px;right:10px;}
+.cloud-1 { width:100px;height:35px;top:15%;left:25%;animation:float 5s ease-in-out infinite 1s; }
+.cloud-1::before{width:60px;height:50px;top:-25px;left:15px;}
+.cloud-2 { width:70px;height:25px;top:6%;right:15%;animation:float 4.5s ease-in-out infinite 0.5s; }
+.cloud-2::before{width:45px;height:35px;top:-18px;left:8px;}
+.cloud-3 { width:90px;height:32px;top:20%;right:30%;animation:float 3.8s ease-in-out infinite 2s; }
+.cloud-4 { width:60px;height:22px;top:12%;left:55%;animation:float 5.2s ease-in-out infinite 0.3s; }
+.cloud-5 { width:110px;height:38px;top:4%;left:40%;animation:float 4.2s ease-in-out infinite 1.5s; }
+.cloud-5::before{width:65px;height:55px;top:-28px;left:20px;}
+
+.auth-container {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+
+.auth-logo {
+  font-family: var(--font-pixel);
+  text-align: center;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+}
+.logo-super { display:block; font-size:11px; color:#f7c948; letter-spacing:4px; margin-bottom:2px; }
+.logo-mario {
+  display:block; font-size:28px; color:#fff;
+  text-shadow: 3px 3px 0 #e52222, -1px -1px 0 #111;
+  animation: glitch 4s infinite;
+}
+.logo-anervea { display:block; font-size:9px; color:#e8d0ff; letter-spacing:6px; margin-top:2px; }
+
+.auth-panel {
+  width: 380px; max-width: 95vw;
+  background: rgba(0,0,0,0.88);
+  border: 3px solid #f7c948;
+  padding: 28px;
+  box-shadow: 0 0 0 2px #000, 0 8px 40px rgba(0,0,0,0.6);
+}
+
+.auth-title {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--mario-yellow);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.auth-mario-icon { display:flex; justify-content:center; margin-bottom:12px; }
+
+.auth-error {
+  background: rgba(229,34,34,0.2);
+  border: 1px solid #e52222;
+  color: #ff8888;
+  padding: 8px 12px;
+  font-size: 11px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+  font-family: var(--font-body);
+}
+
+.auth-form { display:flex; flex-direction:column; gap:14px; }
+
+.field-group { display:flex; flex-direction:column; gap:6px; }
+.field-group label {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #f7c948;
+  letter-spacing: 1px;
+}
+
+.auth-submit { width:100%; font-size:11px; padding:14px; margin-top:4px; }
+
+.auth-footer {
+  text-align:center; margin-top:16px;
+  font-size:12px; color:rgba(255,255,255,0.6);
+}
+.auth-link {
+  color: var(--mario-yellow);
+  text-decoration: none;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+}
+.auth-link:hover { color:#fff; text-decoration: underline; }
+
+.avatar-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.avatar-card {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.2);
+  color:#fff; cursor:pointer;
+  padding:10px 8px; font-size:12px;
+  font-family: var(--font-body); font-weight:700;
+  border-radius:4px;
+  transition: all 0.15s;
+}
+.avatar-card:hover { border-color: var(--avatar-color,#f7c948); background:rgba(255,255,255,0.1); }
+.avatar-card.selected {
+  border-color: var(--avatar-color,#f7c948);
+  background: rgba(247,201,72,0.15);
+  box-shadow: 0 0 0 1px var(--avatar-color,#f7c948);
+}
+
+.ground-row {
+  position:fixed; bottom:0; left:0; right:0;
+  display:flex; z-index:5;
+}
+.ground-block {
+  width: 4%; height: 40px; flex-shrink:0;
+  background: #5c4033;
+  border-top: 3px solid #8b6355;
+  border-right: 1px solid #3a1800;
+}
