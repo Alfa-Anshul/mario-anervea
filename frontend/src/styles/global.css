@@ -1,0 +1,86 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --mario-red: #e52222;
+  --mario-blue: #1a6bcc;
+  --mario-yellow: #f7c948;
+  --mario-green: #2ecc40;
+  --mario-dark: #0a0a0f;
+  --mario-ground: #5c4033;
+  --mario-sky: #5c94fc;
+  --mario-brick: #c84c0c;
+  --panel-bg: rgba(0,0,0,0.85);
+  --panel-border: #f7c948;
+  --text-primary: #fff;
+  --text-accent: #f7c948;
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-body: 'Nunito', sans-serif;
+}
+
+html, body, #root {
+  width: 100%; height: 100%;
+  background: var(--mario-dark);
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: var(--mario-red); border-radius: 3px; }
+
+.pixel-btn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  background: var(--mario-red);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  clip-path: polygon(0 4px,4px 0,calc(100% - 4px) 0,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0 calc(100% - 4px));
+  transition: transform 0.1s, filter 0.1s;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.pixel-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+.pixel-btn:active { transform: scale(0.97); }
+.pixel-btn.secondary { background: var(--mario-blue); }
+.pixel-btn.golden { background: var(--mario-yellow); color: #111; }
+.pixel-btn.green { background: var(--mario-green); }
+
+.pixel-input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(247,201,72,0.3);
+  color: #fff;
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  border-radius: 4px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pixel-input:focus {
+  border-color: var(--mario-yellow);
+  background: rgba(255,255,255,0.12);
+}
+.pixel-input::placeholder { color: rgba(255,255,255,0.35); }
+
+.panel {
+  background: var(--panel-bg);
+  border: 3px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes spin { from{transform:scaleX(1)} 50%{transform:scaleX(0.1)} to{transform:scaleX(1)} }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes glitch {
+  0%,100%{text-shadow:2px 2px 0 #e52222,-2px -2px 0 #1a6bcc}
+  25%{text-shadow:-2px 2px 0 #e52222,2px -2px 0 #1a6bcc}
+  50%{text-shadow:3px -2px 0 #e52222,-3px 2px 0 #1a6bcc}
+}
