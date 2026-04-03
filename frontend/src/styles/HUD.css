@@ -1,0 +1,1 @@
+.hud{display:flex;justify-content:space-around;align-items:center;padding:8px 20px;background:rgba(0,0,0,0.88);border-bottom:3px solid #ffd700;width:800px;}.hud-item{display:flex;flex-direction:column;align-items:center;gap:3px;}.hud-label{font-family:'Press Start 2P',monospace;font-size:8px;color:#aaa;}.hud-value{font-family:'Press Start 2P',monospace;font-size:11px;color:#fff;}
