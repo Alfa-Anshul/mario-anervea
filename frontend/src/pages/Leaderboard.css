@@ -1,0 +1,89 @@
+.lb-bg {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 20px 16px 80px;
+  position: relative; overflow: hidden;
+}
+
+.lb-container {
+  width: 100%; max-width: 760px;
+  position: relative; z-index: 10;
+  animation: fadeIn 0.4s ease;
+}
+
+.lb-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; gap: 12px;
+}
+
+.lb-title {
+  font-family: var(--font-pixel);
+  font-size: 14px; color: var(--mario-yellow);
+  display: flex; align-items: center; gap: 10px;
+  text-shadow: 2px 2px 0 #000;
+}
+.lb-title-icon { font-size: 20px; animation: bounce 1.5s infinite; }
+
+.lb-loading {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px; padding: 60px;
+  font-family: var(--font-pixel); font-size: 11px; color: #aaa;
+}
+.coin-spin { font-size: 32px; animation: spin 1s linear infinite; }
+
+.lb-panel {
+  padding: 0; overflow: hidden;
+  border: 3px solid var(--mario-yellow);
+}
+
+.lb-table-header {
+  display: grid;
+  grid-template-columns: 60px 1fr 130px 80px 100px;
+  background: rgba(247,201,72,0.15);
+  border-bottom: 2px solid var(--mario-yellow);
+  padding: 12px 16px;
+  font-family: var(--font-pixel); font-size: 8px;
+  color: var(--mario-yellow); letter-spacing: 1px;
+}
+
+.lb-rows { overflow-y: auto; max-height: 60vh; }
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 130px 80px 100px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px; font-weight: 700;
+  transition: background 0.15s;
+  align-items: center;
+}
+.lb-row:hover { background: rgba(255,255,255,0.05); }
+.lb-me { background: rgba(247,201,72,0.08) !important; }
+.lb-top { background: rgba(255,215,0,0.05); }
+
+.col-rank { font-family: var(--font-pixel); font-size: 10px; color: #aaa; }
+.lb-top .col-rank { font-size: 16px; }
+.col-player { display: flex; align-items: center; gap: 8px; overflow: hidden; }
+.player-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.player-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-you {
+  font-family: var(--font-pixel); font-size: 7px;
+  background: var(--mario-yellow); color: #000;
+  padding: 2px 5px; border-radius: 2px; flex-shrink: 0;
+}
+.col-score { font-family: var(--font-pixel); font-size: 10px; color: var(--mario-yellow); }
+.col-games { color: #aaa; font-size: 12px; }
+.col-coins { font-size: 12px; }
+
+.lb-empty {
+  text-align: center; padding: 40px;
+  color: #aaa; font-size: 13px;
+}
+
+@media (max-width: 540px) {
+  .lb-table-header, .lb-row {
+    grid-template-columns: 50px 1fr 100px 60px;
+  }
+  .col-coins { display: none; }
+}
