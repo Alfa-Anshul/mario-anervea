@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: mario_backend
+    restart: unless-stopped
+    volumes:
+      - mario_data:/app/data
+    environment:
+      - PORT=8000
+    expose:
+      - "8000"
+
+  frontend:
+    build: ./frontend
+    container_name: mario_frontend
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: mario_nginx
+    restart: unless-stopped
+    ports:
+      - "3009:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  mario_data:
